@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Countdown Timer</title>
+
+    <link rel="stylesheet" href="{% static 'events/style.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Event Countdown Timer</h1>
+
+        <h2>{{ event.name }}</h2>
+
+        <p>Date: {{ event.date }}</p>
+        <p>Time: {{ event.time }}</p>
+
+        <h2 id="countdown">Loading...</h2>
+
+        <br>
+
+        <a href="/add/">
+        <button>Add New Event</button>
+        </a>
+
+    </div>
+
+
+    <script>
+
+        var eventDate = "{{ event.date|date:'Y-m-d' }}";
+        var eventTime = "{{ event.time|time:'H:i:s' }}";
+
+        var eventDateTime = new Date(eventDate + "T" + eventTime);
+
+
+        function countdown() {
+
+            var now = new Date();
+
+            var difference = eventDateTime - now;
+
+
+            if (difference <= 0) {
+
+                document.getElementById("countdown").innerHTML =
+                    "Event Started!";
+
+                return;
+            }
+
+
+            var days = Math.floor(
+                difference / (1000 * 60 * 60 * 24)
+            );
+
+            var hours = Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+
+            var minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+            var seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+
+            document.getElementById("countdown").innerHTML =
+                days + " Days " +
+                hours + " Hours " +
+                minutes + " Minutes " +
+                seconds + " Seconds";
+        }
+
+
+        countdown();
+
+        setInterval(countdown, 1000);
+
+    </script>
+
+</body>
+</html>
