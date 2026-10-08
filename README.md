@@ -73,7 +73,7 @@ The event details are displayed on the webpage, and JavaScript calculates the re
 
 ## Author
 
-**Aarush Singh**
+**Devansh Vats**
 
 B.Tech CSE (Data Science)
 
