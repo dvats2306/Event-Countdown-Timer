@@ -2,8 +2,8 @@
 
 **FDS Django Practical Project**
 
-**Student:** Aarush Singh  
-**Registration No.:** RA2511056030039  
+**Student:** Devansh Vats 
+**Registration No.:** RA2511056030002 
 **Course:** B.Tech CSE (Data Science) - 2nd Year
 
 ## Project
